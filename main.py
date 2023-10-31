@@ -14,11 +14,38 @@ class Organizer(QMainWindow):
 
     def initUI(self):
         self.pushButton.clicked.connect(self.calculation)
+        self.comboBox.activated.connect(self.choice_equation)
 
     def calculation(self):
-        type_of_equation = self.comboBox.currentText()
-        equation = Quadratic_Equation(type_of_equation, 1, 3, 5)
+        self.choice_equation()
+        equation = Quadratic_Equation(self.type_of_equation, 1, 3, 5)
         equation.solution()
+
+    def choice_equation(self):
+        self.type_of_equation = self.comboBox.currentText()
+        if self.type_of_equation == 'ax² + bx + c = 0':
+            self.label_3.show()
+            self.coefb.show()
+            self.label_2.show()
+            self.coefc.show()
+        if self.type_of_equation == 'ax² + bx = 0':
+            self.label_3.show()
+            self.coefb.show()
+            self.label_2.hide()
+            self.coefc.hide()
+        if self.type_of_equation == 'ax² + c = 0':
+            self.label_2.show()
+            self.coefc.show()
+            self.label_3.hide()
+            self.coefb.hide()
+        if self.type_of_equation == 'ax² = 0':
+            self.label_2.hide()
+            self.coefc.hide()
+            self.label_3.hide()
+            self.coefb.hide()
+
+
+
 
 
 if __name__ == '__main__':
