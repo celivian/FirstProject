@@ -1,0 +1,1 @@
+class Quadratic_Equation():
