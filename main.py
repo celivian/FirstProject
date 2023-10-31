@@ -17,8 +17,11 @@ class Organizer(QMainWindow):
         self.comboBox.activated.connect(self.choice_equation)
 
     def calculation(self):
-        self.choice_equation()
-        equation = Quadratic_Equation(self.type_of_equation, 1, 3, 5)
+        self.type_of_equation = self.comboBox.currentText()
+        coefa = self.coefa.text()
+        coefb = self.coefb.text()
+        coefc = self.coefc.text()
+        equation = Quadratic_Equation(self.type_of_equation, coefa, coefb, coefc)
         equation.solution()
 
     def choice_equation(self):
@@ -43,9 +46,6 @@ class Organizer(QMainWindow):
             self.coefc.hide()
             self.label_3.hide()
             self.coefb.hide()
-
-
-
 
 
 if __name__ == '__main__':
