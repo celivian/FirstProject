@@ -3,6 +3,7 @@ import sys
 from PyQt5 import uic
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from quadratic_equation import *
+from input_error import *
 
 
 class Organizer(QMainWindow):
