@@ -22,8 +22,8 @@ class Organizer(QMainWindow):
         coefa = self.coefa.text()
         coefb = self.coefb.text()
         coefc = self.coefc.text()
-        equation = Quadratic_Equation(self.type_of_equation, coefa, coefb, coefc)
-        equation.solution()
+        self.equation = Quadratic_Equation(self.type_of_equation, coefa, coefb, coefc)
+        self.equation.solution(self)
 
     def choice_equation(self):
         self.type_of_equation = self.comboBox.currentText()
@@ -32,21 +32,29 @@ class Organizer(QMainWindow):
             self.coefb.show()
             self.label_2.show()
             self.coefc.show()
+            self.label_6.show()
+            self.label_7.show()
         if self.type_of_equation == 'ax² + bx = 0':
             self.label_3.show()
             self.coefb.show()
             self.label_2.hide()
             self.coefc.hide()
+            self.label_6.hide()
+            self.label_7.hide()
         if self.type_of_equation == 'ax² + c = 0':
             self.label_2.show()
             self.coefc.show()
             self.label_3.hide()
             self.coefb.hide()
+            self.label_6.hide()
+            self.label_7.hide()
         if self.type_of_equation == 'ax² = 0':
             self.label_2.hide()
             self.coefc.hide()
             self.label_3.hide()
             self.coefb.hide()
+            self.label_6.hide()
+            self.label_7.hide()
 
 
 if __name__ == '__main__':
