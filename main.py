@@ -6,4 +6,10 @@ from PyQt5.QtWidgets import QApplication, QMainWindow
 class Organizer(QMainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi('untitled222.ui', self)
+        uic.loadUi('main.ui', self)
+
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    ex = Organizer()
+    ex.show()
+    sys.exit(app.exec_())
