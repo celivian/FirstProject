@@ -10,6 +10,7 @@ class Organizer(QMainWindow):
         uic.loadUi('main.ui', self)
 
     def initUI(self):
+        self.pushButton.clicked.connect()
 
 
 
