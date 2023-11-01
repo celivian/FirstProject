@@ -16,9 +16,9 @@ class Organizer(QMainWindow):
     def initUI(self):
         self.pushButton.clicked.connect(self.calculation)
         self.comboBox.activated.connect(self.choice_equation)
+        self.choice_equation()
 
     def calculation(self):
-        self.type_of_equation = self.comboBox.currentText()
         coefa = self.coefa.text()
         coefb = self.coefb.text()
         coefc = self.coefc.text()
