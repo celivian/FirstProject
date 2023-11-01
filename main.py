@@ -55,6 +55,10 @@ class Organizer(QMainWindow):
             self.coefb.hide()
             self.label_6.hide()
             self.label_7.hide()
+        self.coefa.setText('')
+        self.coefb.setText('')
+        self.coefc.setText('')
+        self.label_6.setText('D = b² - 4 * a * c = ?')
 
 
 if __name__ == '__main__':
