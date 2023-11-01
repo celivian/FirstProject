@@ -11,12 +11,12 @@ class Organizer(QMainWindow):
         super().__init__()
         uic.loadUi('main.ui', self)
         self.setFixedSize(800, 600)
+        self.choice_equation()
         self.initUI()
 
     def initUI(self):
         self.pushButton.clicked.connect(self.calculation)
         self.comboBox.activated.connect(self.choice_equation)
-        self.choice_equation()
 
     def calculation(self):
         coefa = self.coefa.text()
