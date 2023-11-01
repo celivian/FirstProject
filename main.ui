@@ -228,7 +228,7 @@
             </font>
            </property>
            <property name="text">
-            <string>D =</string>
+            <string>D = b² - 4 * a * c = ?</string>
            </property>
           </widget>
          </item>
