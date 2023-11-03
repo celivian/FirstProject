@@ -11,54 +11,21 @@ class Organizer(QMainWindow):
         super().__init__()
         uic.loadUi('main.ui', self)
         self.setFixedSize(800, 600)
-        self.choice_equation()
+        self.qequation = Quadratic_Equation(self)
+        self.changedtab()
         self.initUI()
 
     def initUI(self):
-        self.pushButton.clicked.connect(self.calculation)
-        self.comboBox.activated.connect(self.choice_equation)
+        self.tabWidget.currentChanged.connect(self.changedtab)
 
-    def calculation(self):
-        coefa = self.coefa.text()
-        coefb = self.coefb.text()
-        coefc = self.coefc.text()
-        self.equation = Quadratic_Equation(self.type_of_equation, coefa, coefb, coefc)
-        self.equation.solution(self)
 
-    def choice_equation(self):
-        self.type_of_equation = self.comboBox.currentText()
-        if self.type_of_equation == 'ax² + bx + c = 0':
-            self.label_3.show()
-            self.coefb.show()
-            self.label_2.show()
-            self.coefc.show()
-            self.label_6.show()
-            self.label_7.show()
-        if self.type_of_equation == 'ax² + bx = 0':
-            self.label_3.show()
-            self.coefb.show()
-            self.label_2.hide()
-            self.coefc.hide()
-            self.label_6.hide()
-            self.label_7.hide()
-        if self.type_of_equation == 'ax² + c = 0':
-            self.label_2.show()
-            self.coefc.show()
-            self.label_3.hide()
-            self.coefb.hide()
-            self.label_6.hide()
-            self.label_7.hide()
-        if self.type_of_equation == 'ax² = 0':
-            self.label_2.hide()
-            self.coefc.hide()
-            self.label_3.hide()
-            self.coefb.hide()
-            self.label_6.hide()
-            self.label_7.hide()
-        self.coefa.setText('')
-        self.coefb.setText('')
-        self.coefc.setText('')
-        self.label_6.setText('D = b² - 4 * a * c = ?')
+    def changedtab(self):
+        self.tabindex = self.tabWidget.currentIndex()
+        if self.tabindex == 0:
+            self.pushButton.clicked.connect(self.qequation.calculation)
+            self.comboBox.activated.connect(self.qequation.choice_equation)
+
+
 
 
 if __name__ == '__main__':
