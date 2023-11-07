@@ -10,6 +10,7 @@ from input_qe import *
 class Organizer(QMainWindow):
     def __init__(self):
         super().__init__()
+        self.setWindowIcon(QIcon("icon.ico"))
         self.setupUi(self)
 
     """Метод initUI запускает основной интерфейс программы:
@@ -25,7 +26,6 @@ class Organizer(QMainWindow):
         sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
         MainWindow.setSizePolicy(sizePolicy)
         self.setFixedSize(800, 600)
-        self.setWindowIcon(QIcon("icon.ico"))
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.tabWidget = QtWidgets.QTabWidget(self.centralwidget)
