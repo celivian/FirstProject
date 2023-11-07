@@ -125,3 +125,43 @@ class Quadratic_Equation():
             self.main.label_11.setText(f'Ответ: {x1}; {x2}')
         else:
             raise Input_Error()
+
+    """Метод quadratic_equation3 решает неполное квадратное уравнение ax² + c = 0"""
+
+    def quadratic_equation3(self):
+        if self.coefficients[2]:
+            self.main.statusBar().hide()
+            separation = -float(self.coefficients[2]) / float(self.coefficients[0])
+            if separation < 0:
+                self.main.label_11.setText(f'Ответ: нет корней')
+                self.main.label_9.hide()
+                self.main.label_10.hide()
+            if separation > 0:
+                self.main.label_8.setText('Количество корней: 2')
+                x1 = m.sqrt(separation)
+                x1 = int(x1) if x1 == float(int(x1)) else x1
+                x2 = -m.sqrt(separation)
+                x2 = int(x2) if x2 == float(int(x2)) else x2
+                c = float(self.coefficients[2])
+                c = int(c) if c == float(int(c)) else c
+                a = float(self.coefficients[0])
+                a = int(a) if a == float(int(a)) else a
+                separation = int(separation) if separation == float(int(separation)) else separation
+                if '.' in str(separation):
+                    if len(str(separation).split('.')[1]) > 3:
+                        separation = f'({-c} / {a})'
+                if '.' in str(x1):
+                    if len(str(x1).split('.')[1]) > 3:
+                        x1 = f'√{separation}'
+                if '.' in str(x2):
+                    if len(str(x2).split('.')[1]) > 3:
+                        x2 = f'-√{separation}'
+                self.main.label_9.setText(
+                    f'X₁ = √(-({c}) / {a}) = {x1}')
+                self.main.label_10.setText(
+                    f'X₂ = - √(-({c}) / {a}) = {x2}')
+                self.main.label_11.setText(f'Ответ: {x1}; {x2}')
+                self.main.label_9.show()
+                self.main.label_10.show()
+        else:
+            raise Input_Error()
