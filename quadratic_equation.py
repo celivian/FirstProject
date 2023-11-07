@@ -44,3 +44,69 @@ class Quadratic_Equation():
             self.main.statusBar().showMessage("Ноль не может быть введен!")
             self.main.statusBar().show()
             self.aftererror()
+
+    """Метод quadratic_equation1 решает полное квадратное уравнение ax² + bx + c = 0"""
+
+    def quadratic_equation1(self):
+        if self.coefficients[1] and self.coefficients[2]:
+            self.main.statusBar().hide()
+            discr = float(self.coefficients[1]) ** 2 - 4 * float(self.coefficients[0]) * float(
+                self.coefficients[2])
+            discr = int(discr) if discr == float(int(discr)) else discr
+            self.main.label_6.setText(
+                f'D = ({self.coefficients[1]})² - 4 * {self.coefficients[0]} * {self.coefficients[2]} = {discr}')
+            if discr > 0:
+                self.main.label_7.setText('D > 0')
+                self.main.label_8.setText('Количество корней: 2')
+                x1 = (-float(self.coefficients[1]) - m.sqrt(discr)) / (2 * float(self.coefficients[0]))
+                x1 = int(x1) if x1 == float(int(x1)) else x1
+                x2 = (-float(self.coefficients[1]) + m.sqrt(discr)) / (2 * float(self.coefficients[0]))
+                x2 = int(x2) if x2 == float(int(x2)) else x2
+                multiplication1 = 2 * float(self.coefficients[0])
+                multiplication1 = int(multiplication1) if multiplication1 == float(
+                    int(multiplication1)) else multiplication1
+                minus = -float(self.coefficients[1])
+                minus = int(minus) if minus == float(int(minus)) else minus
+                if '.' in str(x1):
+                    if len(str(x1).split('.')[1]) > 3 and m.sqrt(discr) != float(int(m.sqrt(discr))):
+                        x1 = f'({minus} - √{discr}) / {multiplication1}'
+                    elif len(str(x1).split('.')[1]) > 3 and m.sqrt(discr) == float(int(m.sqrt(discr))):
+                        x1 = f'{minus - int(m.sqrt(discr))} / {multiplication1}'
+                if '.' in str(x2):
+                    if len(str(x2).split('.')[1]) > 3 and m.sqrt(discr) != float(int(m.sqrt(discr))):
+                        x2 = f'({minus} + √{discr}) / {multiplication1}'
+                    elif len(str(x2).split('.')[1]) > 3 and m.sqrt(discr) == float(int(m.sqrt(discr))):
+                        x2 = f'{minus + int(m.sqrt(discr))} / {multiplication1}'
+                if '/' in x1 and '√' not in x1:
+                    sp = x1.split(' / ')
+                    if float(sp[0]) == float(int(sp[0])) and float(sp[1]) == float(int(sp[1])):
+                        nod = m.gcd(int(sp[0]), int(sp[1]))
+                        x1 = f'{int(int(sp[0]) / nod)} / {int(int(sp[1]) / nod)}'
+                if '/' in x2 and '√' not in x2:
+                    sp = x2.split(' / ')
+                    if float(sp[0]) == float(int(sp[0])) and float(sp[1]) == float(int(sp[1])):
+                        nod = m.gcd(int(sp[0]), int(sp[1]))
+                        x2 = f'{int(int(sp[0]) / nod)} / {int(int(sp[1]) / nod)}'
+                self.main.label_9.setText(
+                    f'X₁ = (-({self.coefficients[1]}) - √{discr}) / (2 * {self.coefficients[0]}) = {x1}')
+                self.main.label_10.setText(
+                    f'X₂ = (-({self.coefficients[1]}) + √{discr}) / (2 * {self.coefficients[0]}) = {x2}')
+                self.main.label_11.setText(f'Ответ: {x1}; {x2}')
+            if discr == 0:
+                self.main.label_7.setText('D = 0')
+                self.main.label_8.setText('Количество корней: 1')
+                x1 = (-int(self.coefficients[1]) - m.sqrt(discr)) / 2 * int(self.coefficients[0])
+                x1 = int(x1) if x1 == float(int(x1)) else x1
+                self.main.label_9.setText(
+                    f'X = (-({self.coefficients[1]}) ± {discr}) / 2 * {self.coefficients[0]} = {x1}')
+                self.main.label_10.hide()
+                self.main.label_11.setText(f'Ответ: {x1}')
+                self.main.label_9.show()
+            if discr < 0:
+                self.main.label_7.setText('D < 0')
+                self.main.label_8.setText('Количество корней: 0')
+                self.main.label_9.hide()
+                self.main.label_10.hide()
+                self.main.label_11.setText(f'Ответ: нет корней')
+        else:
+            raise Input_Error()
