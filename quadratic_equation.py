@@ -110,3 +110,18 @@ class Quadratic_Equation():
                 self.main.label_11.setText(f'Ответ: нет корней')
         else:
             raise Input_Error()
+
+    """Метод quadratic_equation2 решает неполное квадратное уравнение ax² + bx = 0"""
+
+    def quadratic_equation2(self):
+        if self.coefficients[1]:
+            self.main.statusBar().hide()
+            x1 = 0
+            x2 = -float(self.coefficients[1]) / float(self.coefficients[0])
+            x2 = int(x2) if x2 == float(int(x2)) else x2
+            self.main.label_9.setText(f'X₁ = {x1}')
+            self.main.label_10.setText(f'X₂ = -({self.coefficients[1]}) / {self.coefficients[0]} = {x2}')
+            self.main.label_8.setText('Количество корней: 2')
+            self.main.label_11.setText(f'Ответ: {x1}; {x2}')
+        else:
+            raise Input_Error()
