@@ -190,6 +190,32 @@ class Organizer(QMainWindow):
         self.comboBox.activated.connect(self.input.choice_equation)
 
 
+    """Метод retranslateUi устанавливает текст и заголовки виджетов."""
+
+    def retranslateUi(self, MainWindow):
+        _translate = QtCore.QCoreApplication.translate
+        MainWindow.setWindowTitle(_translate("MainWindow", "Quadratic equations"))
+        self.label.setText(_translate("MainWindow", "Выберите вид квадратного уравнения"))
+        self.comboBox.setItemText(0, _translate("MainWindow", "ax² + bx + c = 0"))
+        self.comboBox.setItemText(1, _translate("MainWindow", "ax² + bx = 0"))
+        self.comboBox.setItemText(2, _translate("MainWindow", "ax² + c = 0"))
+        self.comboBox.setItemText(3, _translate("MainWindow", "ax² = 0"))
+        self.pushButton.setText(_translate("MainWindow", "Рассчитать"))
+        self.label_5.setText(_translate("MainWindow",
+                                        "Введите коэффициенты. Если коэффициент a = 1, можете ост"
+                                        "авить эту ячейку пустой. А если a = -1, напишите просто -."))
+        self.label_4.setText(_translate("MainWindow", "a ="))
+        self.label_3.setText(_translate("MainWindow", "b ="))
+        self.label_2.setText(_translate("MainWindow", "c ="))
+        self.label_6.setText(_translate("MainWindow", "D = b² - 4 * a * c = ?"))
+        self.label_7.setText(_translate("MainWindow", "D ? 0"))
+        self.label_8.setText(_translate("MainWindow", "Количество корней: ?"))
+        self.label_9.setText(_translate("MainWindow", "X₁ = (-(b) - √D) / 2 * a = ?"))
+        self.label_10.setText(_translate("MainWindow", "X₂ = (-(b) + √D) / 2 * a = ?"))
+        self.label_11.setText(_translate("MainWindow", "Ответ: ?"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("MainWindow", "Квадратные уравнения"))
+
+
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     ex = Organizer()
