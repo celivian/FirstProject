@@ -17,15 +17,15 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>Organizer</string>
+   <string>Quadratic equations</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>0</x>
       <y>0</y>
-      <width>811</width>
+      <width>821</width>
       <height>541</height>
      </rect>
     </property>
@@ -133,7 +133,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>Введите коэффициенты. Если коэффициент a = 1, можете оставить эту ячейку пустой.</string>
+       <string>Введите коэффициенты. Если коэффициент a = 1, можете оставить эту ячейку пустой. А если a = -1, напишите просто -.</string>
       </property>
       <property name="wordWrap">
        <bool>true</bool>
@@ -143,8 +143,8 @@
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>200</y>
-        <width>110</width>
+        <y>220</y>
+        <width>101</width>
         <height>149</height>
        </rect>
       </property>
@@ -214,7 +214,7 @@
         <x>340</x>
         <y>0</y>
         <width>361</width>
-        <height>143</height>
+        <height>171</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -267,9 +267,9 @@
       <property name="geometry">
        <rect>
         <x>340</x>
-        <y>140</y>
+        <y>170</y>
         <width>361</width>
-        <height>141</height>
+        <height>311</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -304,34 +304,23 @@
          </property>
         </widget>
        </item>
+       <item>
+        <widget class="QLabel" name="label_11">
+         <property name="font">
+          <font>
+           <pointsize>14</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Ответ: ?</string>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
       </layout>
      </widget>
-     <widget class="QLabel" name="label_11">
-      <property name="geometry">
-       <rect>
-        <x>340</x>
-        <y>280</y>
-        <width>361</width>
-        <height>61</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>14</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Ответ: ?</string>
-      </property>
-      <property name="wordWrap">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="tab_2">
-     <attribute name="title">
-      <string>Графики функций</string>
-     </attribute>
     </widget>
    </widget>
   </widget>
