@@ -165,3 +165,15 @@ class Quadratic_Equation():
                 self.main.label_10.show()
         else:
             raise Input_Error()
+
+    """Метод quadratic_equation4 решает неполное квадратное уравнение ax² = 0"""
+
+    def quadratic_equation4(self):
+        self.main.statusBar().hide()
+        if self.coefficients[0] == str(int(self.coefficients[0])):
+            self.main.label_10.setText(f'X = 0')
+            self.main.label_8.setText('Количество корней: 1')
+            self.main.label_11.setText(f'Ответ: 0')
+            self.main.label_9.hide()
+        else:
+            raise ValueError()
