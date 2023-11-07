@@ -61,3 +61,13 @@ class InputQE():
         self.main.coefc.setText('')
         self.main.label_8.setText('Количество корней: ?')
         self.main.label_11.setText(f'Ответ: ?')
+
+    """Метод calculation отправляет полученную информацию в другой класс для решения уравнения"""
+
+    def calculation(self):
+        coefa = self.main.coefa.text()
+        coefb = self.main.coefb.text()
+        coefc = self.main.coefc.text()
+        self.coefficients = [coefa, coefb, coefc]
+        self.type_of_equation = self.main.comboBox.currentText()
+        self.qe.solution(self.coefficients, self.type_of_equation)
