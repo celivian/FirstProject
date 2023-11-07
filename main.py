@@ -10,17 +10,13 @@ from input_qe import *
 class Organizer(QMainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi('main.ui', self)
-        self.setFixedSize(800, 600)
-        self.setWindowIcon(QIcon("icon.ico"))
-        self.input = InputQE(self, Quadratic_Equation(self))
-        self.initUI(self)
+        self.setupUi(self)
 
     """Метод initUI запускает основной интерфейс программы:
     создает объекты виджета в соответствующих контейнерах и 
     присваивает им правильные имена объектов."""
 
-    def initUI(self, MainWindow):
+    def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(805, 592)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
@@ -28,6 +24,8 @@ class Organizer(QMainWindow):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
         MainWindow.setSizePolicy(sizePolicy)
+        self.setFixedSize(800, 600)
+        self.setWindowIcon(QIcon("icon.ico"))
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.tabWidget = QtWidgets.QTabWidget(self.centralwidget)
@@ -186,6 +184,7 @@ class Organizer(QMainWindow):
         self.retranslateUi(MainWindow)
         self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        self.input = InputQE(self, Quadratic_Equation(self))
         self.pushButton.clicked.connect(self.input.calculation)
         self.comboBox.activated.connect(self.input.choice_equation)
 
