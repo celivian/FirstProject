@@ -23,6 +23,7 @@ class InputQE():
             self.main.label_7.setText('D ? 0')
             self.main.label_9.setText('X₁ = (-(b) - √D) / 2 * a = ?')
             self.main.label_10.setText('X₂ = (-(b) + √D) / 2 * a = ?')
+            self.main.label_13.setText('[Уравнение]')
             self.main.label_9.show()
             self.main.label_10.show()
         if self.type_of_equation == 'ax² + bx = 0':
@@ -34,6 +35,7 @@ class InputQE():
             self.main.label_7.hide()
             self.main.label_9.setText('X₁ = ?')
             self.main.label_10.setText('X₂ = -b / a = ?')
+            self.main.label_13.setText('[Уравнение]')
             self.main.label_9.show()
             self.main.label_10.show()
         if self.type_of_equation == 'ax² + c = 0':
@@ -45,6 +47,7 @@ class InputQE():
             self.main.label_7.hide()
             self.main.label_9.setText('X₁ = √(-с / a) = ?')
             self.main.label_10.setText('X₂ = -√(-с / a) = ?')
+            self.main.label_13.setText('[Уравнение]')
             self.main.label_9.show()
             self.main.label_10.show()
         if self.type_of_equation == 'ax² = 0':
@@ -55,6 +58,7 @@ class InputQE():
             self.main.label_6.hide()
             self.main.label_7.hide()
             self.main.label_10.setText('X = ?')
+            self.main.label_13.setText('[Уравнение]')
             self.main.label_9.hide()
         self.main.coefa.setText('')
         self.main.coefb.setText('')
@@ -71,3 +75,5 @@ class InputQE():
         self.coefficients = [coefa, coefb, coefc]
         self.type_of_equation = self.main.comboBox.currentText()
         self.qe.solution(self.coefficients, self.type_of_equation)
+
+
