@@ -73,6 +73,7 @@ class Quadratic_Equation():
                 self.quadratic_equation3()
             if self.type_of_equation == 'ax² = 0':
                 self.quadratic_equation4()
+            self.main.form()
         except ValueError:
             self.main.statusBar().showMessage("Ввeдите числа правильно!")
             self.aftererror()
@@ -134,7 +135,6 @@ class Quadratic_Equation():
                 self.main.label_11.setText(f'Ответ: нет корней')
                 self.main.label_9.hide()
                 self.main.label_10.hide()
-            self.main.form()
         else:
             raise Input_Error()
 
@@ -150,7 +150,6 @@ class Quadratic_Equation():
             self.main.label_10.setText(f'X₂ = -({self.coefficients[1]}) / {self.coefficients[0]} = {x2}')
             self.main.label_8.setText('Количество корней: 2')
             self.main.label_11.setText(f'Ответ: {x1}; {x2}')
-            self.main.form()
         else:
             raise Input_Error()
 
@@ -190,7 +189,6 @@ class Quadratic_Equation():
                 self.main.label_11.setText(f'Ответ: нет корней')
                 self.main.label_9.hide()
                 self.main.label_10.hide()
-            self.main.form()
         else:
             raise Input_Error()
 
@@ -203,7 +201,6 @@ class Quadratic_Equation():
             self.main.label_8.setText('Количество корней: 1')
             self.main.label_11.setText(f'Ответ: 0')
             self.main.label_9.hide()
-            self.main.form()
         else:
             raise ValueError()
 
@@ -263,3 +260,4 @@ class Quadratic_Equation():
 
         sepint = int(sepint) if sepint == float(int(sepint)) else sepint
         return sepint
+

@@ -1,9 +1,8 @@
-import sys
 from check_is_root import *
-from grahps import *
+from BaseData.unusedFiles.grahps import *
 from quadratic_equation import *
-from PyQt5 import uic, QtWidgets, QtCore, QtGui
 from PyQt5.QtWidgets import QMainWindow, QApplication
+from dialog_window import *
 
 """Это класс окна. Он запускает интерфейс программы"""
 
@@ -11,6 +10,11 @@ from PyQt5.QtWidgets import QMainWindow, QApplication
 class Organizer(QMainWindow):
     def __init__(self):
         super().__init__()
+        dlg = CustomDialog()
+        if dlg.exec():
+            pass
+        else:
+            quit()
         self.setupUi(self)
 
     """Метод setupUI запускает основной интерфейс программы:
@@ -18,7 +22,6 @@ class Organizer(QMainWindow):
     присваивает им правильные имена объектов."""
 
     def setupUi(self, MainWindow):
-        self.setFixedSize(715, 548)
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(715, 548)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
@@ -51,12 +54,15 @@ class Organizer(QMainWindow):
         self.label = QtWidgets.QLabel(self.verticalLayoutWidget)
         font2 = QtGui.QFont()
         font2.setFamily("Noto Naskh Arabic UI")
-        font2.setPointSize(12)
+        font2.setPointSize(10)
         self.label.setFont(font2)
         self.label.setFrameShape(QtWidgets.QFrame.Box)
         self.label.setObjectName("label")
         self.verticalLayout.addWidget(self.label)
         self.comboBox = QtWidgets.QComboBox(self.verticalLayoutWidget)
+        font3 = QtGui.QFont()
+        font3.setPointSize(10)
+        self.comboBox.setFont(font3)
         self.comboBox.setObjectName("comboBox")
         self.comboBox.addItem("")
         self.comboBox.addItem("")
@@ -70,9 +76,15 @@ class Organizer(QMainWindow):
         self.line.setObjectName("line")
         self.pushButton = QtWidgets.QPushButton(self.tab)
         self.pushButton.setGeometry(QtCore.QRect(10, 390, 131, 41))
+        font4 = QtGui.QFont()
+        font4.setPointSize(10)
+        self.pushButton.setFont(font4)
         self.pushButton.setObjectName("pushButton")
         self.label_5 = QtWidgets.QLabel(self.tab)
         self.label_5.setGeometry(QtCore.QRect(20, 110, 281, 101))
+        font5 = QtGui.QFont()
+        font5.setPointSize(10)
+        self.label_5.setFont(font5)
         self.label_5.setWordWrap(True)
         self.label_5.setObjectName("label_5")
         self.verticalLayoutWidget_4 = QtWidgets.QWidget(self.tab)
@@ -84,9 +96,9 @@ class Organizer(QMainWindow):
         self.horizontalLayout_6 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_6.setObjectName("horizontalLayout_6")
         self.label_4 = QtWidgets.QLabel(self.verticalLayoutWidget_4)
-        font3 = QtGui.QFont()
-        font3.setPointSize(18)
-        self.label_4.setFont(font3)
+        font6 = QtGui.QFont()
+        font6.setPointSize(14)
+        self.label_4.setFont(font6)
         self.label_4.setObjectName("label_4")
         self.horizontalLayout_6.addWidget(self.label_4)
         self.coefa = QtWidgets.QLineEdit(self.verticalLayoutWidget_4)
@@ -96,9 +108,9 @@ class Organizer(QMainWindow):
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
         self.label_3 = QtWidgets.QLabel(self.verticalLayoutWidget_4)
-        font4 = QtGui.QFont()
-        font4.setPointSize(18)
-        self.label_3.setFont(font4)
+        font7 = QtGui.QFont()
+        font7.setPointSize(14)
+        self.label_3.setFont(font7)
         self.label_3.setObjectName("label_3")
         self.horizontalLayout_3.addWidget(self.label_3)
         self.coefb = QtWidgets.QLineEdit(self.verticalLayoutWidget_4)
@@ -108,9 +120,9 @@ class Organizer(QMainWindow):
         self.horizontalLayout_5 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_5.setObjectName("horizontalLayout_5")
         self.label_2 = QtWidgets.QLabel(self.verticalLayoutWidget_4)
-        font5 = QtGui.QFont()
-        font5.setPointSize(18)
-        self.label_2.setFont(font5)
+        font8 = QtGui.QFont()
+        font8.setPointSize(14)
+        self.label_2.setFont(font8)
         self.label_2.setObjectName("label_2")
         self.horizontalLayout_5.addWidget(self.label_2)
         self.coefc = QtWidgets.QLineEdit(self.verticalLayoutWidget_4)
@@ -126,25 +138,25 @@ class Organizer(QMainWindow):
         self.horizontalLayout_7 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_7.setObjectName("horizontalLayout_7")
         self.label_6 = QtWidgets.QLabel(self.verticalLayoutWidget_2)
-        font6 = QtGui.QFont()
-        font6.setPointSize(16)
-        self.label_6.setFont(font6)
+        font9 = QtGui.QFont()
+        font9.setPointSize(12)
+        self.label_6.setFont(font9)
         self.label_6.setFrameShape(QtWidgets.QFrame.Box)
         self.label_6.setWordWrap(True)
         self.label_6.setObjectName("label_6")
         self.horizontalLayout_7.addWidget(self.label_6)
         self.verticalLayout_2.addLayout(self.horizontalLayout_7)
         self.label_7 = QtWidgets.QLabel(self.verticalLayoutWidget_2)
-        font7 = QtGui.QFont()
-        font7.setPointSize(16)
-        self.label_7.setFont(font7)
+        font10 = QtGui.QFont()
+        font10.setPointSize(12)
+        self.label_7.setFont(font10)
         self.label_7.setFrameShape(QtWidgets.QFrame.Box)
         self.label_7.setObjectName("label_7")
         self.verticalLayout_2.addWidget(self.label_7)
         self.label_8 = QtWidgets.QLabel(self.verticalLayoutWidget_2)
-        font8 = QtGui.QFont()
-        font8.setPointSize(16)
-        self.label_8.setFont(font8)
+        font11 = QtGui.QFont()
+        font11.setPointSize(12)
+        self.label_8.setFont(font11)
         self.label_8.setFrameShape(QtWidgets.QFrame.Box)
         self.label_8.setObjectName("label_8")
         self.verticalLayout_2.addWidget(self.label_8)
@@ -155,62 +167,61 @@ class Organizer(QMainWindow):
         self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
         self.label_9 = QtWidgets.QLabel(self.verticalLayoutWidget_3)
-        font9 = QtGui.QFont()
-        font9.setFamily("Noto Naskh Arabic")
-        font9.setPointSize(16)
-        self.label_9.setFont(font9)
+        font12 = QtGui.QFont()
+        font12.setFamily("Noto Naskh Arabic")
+        font12.setPointSize(12)
+        self.label_9.setFont(font12)
         self.label_9.setFrameShape(QtWidgets.QFrame.Box)
         self.label_9.setWordWrap(True)
         self.label_9.setObjectName("label_9")
         self.verticalLayout_3.addWidget(self.label_9)
         self.label_10 = QtWidgets.QLabel(self.verticalLayoutWidget_3)
-        font10 = QtGui.QFont()
-        font10.setPointSize(16)
-        self.label_10.setFont(font10)
+        font13 = QtGui.QFont()
+        font13.setPointSize(12)
+        self.label_10.setFont(font13)
         self.label_10.setFrameShape(QtWidgets.QFrame.Box)
         self.label_10.setWordWrap(True)
         self.label_10.setObjectName("label_10")
         self.verticalLayout_3.addWidget(self.label_10)
         self.label_11 = QtWidgets.QLabel(self.verticalLayoutWidget_3)
-        font11 = QtGui.QFont()
-        font11.setPointSize(14)
-        self.label_11.setFont(font10)
+        font14 = QtGui.QFont()
+        font14.setPointSize(12)
+        self.label_11.setFont(font14)
         self.label_11.setFrameShape(QtWidgets.QFrame.Box)
         self.label_11.setWordWrap(True)
         self.label_11.setObjectName("label_11")
         self.verticalLayout_3.addWidget(self.label_11)
         self.pushButton_2 = QtWidgets.QPushButton(self.tab)
-        self.pushButton_2.setEnabled(False)
+        self.pushButton_2.setEnabled(True)
         self.pushButton_2.setGeometry(QtCore.QRect(160, 230, 151, 41))
+        font15 = QtGui.QFont()
+        font15.setPointSize(10)
+        self.pushButton_2.setFont(font15)
         self.pushButton_2.setObjectName("pushButton_2")
-        self.pushButton_3 = QtWidgets.QPushButton(self.tab)
-        self.pushButton_3.setEnabled(False)
-        self.pushButton_3.setGeometry(QtCore.QRect(160, 280, 151, 41))
-        self.pushButton_3.setObjectName("pushButton_3")
         self.label_13 = QtWidgets.QLabel(self.tab)
         self.label_13.setGeometry(QtCore.QRect(340, 0, 401, 31))
-        font12 = QtGui.QFont()
-        font12.setPointSize(14)
-        self.label_13.setFont(font12)
+        font16 = QtGui.QFont()
+        font16.setPointSize(12)
+        self.label_13.setFont(font16)
         self.label_13.setObjectName("label_13")
         self.tabWidget.addTab(self.tab, "")
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
-        font13 = QtGui.QFont()
-        font13.setPointSize(14)
-        font13.setBold(False)
-        font13.setWeight(50)
-        self.statusbar.setFont(font13)
+        font17 = QtGui.QFont()
+        font17.setPointSize(14)
+        font17.setBold(False)
+        font17.setWeight(50)
+        self.statusbar.setFont(font17)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
         self.action = QtWidgets.QAction(MainWindow)
         self.action.setObjectName("action")
-
         self.retranslateUi(MainWindow)
         self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        self.setFixedSize(715, 548)
         self.input = InputQE(self, Quadratic_Equation(self))
-        self.pushButton_2.clicked.connect(self.window2)
+        self.pushButton_2.clicked.connect(self.checkisroot)
         self.pushButton.clicked.connect(self.input.calculation)
         self.comboBox.activated.connect(self.input.choice_equation)
 
@@ -226,8 +237,7 @@ class Organizer(QMainWindow):
         self.comboBox.setItemText(3, _translate("MainWindow", "ax² = 0"))
         self.pushButton.setText(_translate("MainWindow", "Рассчитать"))
         self.label_5.setText(_translate("MainWindow",
-                                        "Введите коэффициенты. Если коэффициент a = 1, можете оставить эту ячейку "
-                                        "пустой. А если a = -1, напишите просто -."))
+                                        "Введите коэффициенты. Если коэффициент a = 1, можете оставить эту ячейку пустой. А если a = -1, напишите просто -."))
         self.label_4.setText(_translate("MainWindow", "a ="))
         self.label_3.setText(_translate("MainWindow", "b ="))
         self.label_2.setText(_translate("MainWindow", "c ="))
@@ -238,16 +248,18 @@ class Organizer(QMainWindow):
         self.label_10.setText(_translate("MainWindow", "X₂ = (-(b) + √D) / 2 * a = ?"))
         self.label_11.setText(_translate("MainWindow", "Ответ: ?"))
         self.pushButton_2.setText(_translate("MainWindow", "Проверить корни"))
-        self.pushButton_3.setText(_translate("MainWindow", "Построить график"))
         self.label_13.setText(_translate("MainWindow", "[Уравнение]"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("MainWindow", "Квадратные уравнения"))
         self.action.setText(_translate("MainWindow", "Создатель"))
 
-    """Метод window2 открывает новое окно с проверкой корней"""
+    """Метод checkisroot открывает новое окно с проверкой корней"""
 
-    def window2(self):
-        self.win = Check_Is_Root(self)
-        self.win.show()
+    def checkisroot(self):
+        self.check = Check_Is_Root(self)
+        self.form()
+        self.check.show()
+        text = self.label_13.text()
+        self.check.label_2.setText(text)
 
     """Метод form формирует уравнение в текстовом виде, понятном для человека"""
 
@@ -259,32 +271,37 @@ class Organizer(QMainWindow):
             coefa = '1'
         if coefa == '-':
             coefa = '-1'
-        type_of_equation = self.comboBox.currentText()
-        if type_of_equation == 'ax² + bx + c = 0':
-            if float(coefb) < 0:
-                type_of_equation = type_of_equation[:4] + '-' + type_of_equation[5:]
-                coefb = coefb[1:]
-            if float(coefc) < 0:
-                type_of_equation = type_of_equation[:9] + '-' + type_of_equation[10:]
-                coefc = coefc[1:]
-            type_of_equation = type_of_equation.replace('a', coefa)
-            type_of_equation = type_of_equation.replace('b', coefb)
-            type_of_equation = type_of_equation.replace('c', coefc)
-        if type_of_equation == 'ax² + bx = 0':
-            if float(coefb) < 0:
-                type_of_equation = type_of_equation[:4] + '-' + type_of_equation[5:]
-                coefb = coefb[1:]
-            type_of_equation = type_of_equation.replace('a', coefa)
-            type_of_equation = type_of_equation.replace('b', coefb)
-        if type_of_equation == 'ax² + c = 0':
-            if float(coefc) < 0:
-                type_of_equation = type_of_equation[:4] + '-' + type_of_equation[5:]
-                coefc = coefc[1:]
-            type_of_equation = type_of_equation.replace('a', coefa)
-            type_of_equation = type_of_equation.replace('c', coefc)
-        if type_of_equation == 'ax² = 0':
-            type_of_equation = type_of_equation.replace('a', coefa)
-        self.label_13.setText(type_of_equation)
+        try:
+            testcoefa = float(coefa)
+            type_of_equation = self.comboBox.currentText()
+            if type_of_equation == 'ax² + bx + c = 0':
+                if float(coefb) < 0:
+                    type_of_equation = type_of_equation[:4] + '-' + type_of_equation[5:]
+                    coefb = coefb[1:]
+                if float(coefc) < 0:
+                    type_of_equation = type_of_equation[:9] + '-' + type_of_equation[10:]
+                    coefc = coefc[1:]
+                type_of_equation = type_of_equation.replace('a', coefa)
+                type_of_equation = type_of_equation.replace('b', coefb)
+                type_of_equation = type_of_equation.replace('c', coefc)
+            if type_of_equation == 'ax² + bx = 0':
+                if float(coefb) < 0:
+                    type_of_equation = type_of_equation[:4] + '-' + type_of_equation[5:]
+                    coefb = coefb[1:]
+                type_of_equation = type_of_equation.replace('a', coefa)
+                type_of_equation = type_of_equation.replace('b', coefb)
+            if type_of_equation == 'ax² + c = 0':
+                if float(coefc) < 0:
+                    type_of_equation = type_of_equation[:4] + '-' + type_of_equation[5:]
+                    coefc = coefc[1:]
+                type_of_equation = type_of_equation.replace('a', coefa)
+                type_of_equation = type_of_equation.replace('c', coefc)
+            if type_of_equation == 'ax² = 0':
+                type_of_equation = type_of_equation.replace('a', coefa)
+            self.label_13.setText(type_of_equation)
+        except Exception:
+            self.check.label_7.setText('Коэффициенты не введены или введены неправильно!')
+            self.check.label_7.show()
 
 
 if __name__ == '__main__':
