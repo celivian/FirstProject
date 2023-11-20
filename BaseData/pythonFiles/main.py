@@ -1,11 +1,11 @@
 from check_is_root import *
-from BaseData.unusedFiles.grahps import *
 from quadratic_equation import *
 from PyQt5.QtWidgets import QMainWindow, QApplication
 from dialog_window import *
+import sys
+
 
 """Это класс окна. Он запускает интерфейс программы"""
-
 
 class Organizer(QMainWindow):
     def __init__(self):
