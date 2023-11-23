@@ -13,11 +13,11 @@ class CustomDialog(QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.ui(self)
-        picture1 = QPixmap('BaseData\static\image1.png')
-        picture2 = QPixmap('BaseData\static\image2.png')
+        picture1 = QPixmap('image1.png')
+        picture2 = QPixmap('image2.png')
         self.label_2.setPixmap(picture1)
         self.label_3.setPixmap(picture2)
-        with open('BaseData\static\instruction.txt', 'r', encoding='utf-8') as f:
+        with open('instruction.txt', 'r', encoding='utf-8') as f:
             a = f.read()
         self.label.setText(a)
         self.label.setWordWrap(True)
